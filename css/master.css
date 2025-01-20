@@ -15,11 +15,13 @@ body {
 }
 
 body.menu-open {
-    margin-left: 250px;
+    margin-left: 200px;
 }
 
-body.menu-open .languages-section {
-    max-width: 950px;
+@media screen and (max-width: 768px) {
+    body.menu-open {
+        margin-left: 0;
+    }
 }
 
 main {
@@ -54,17 +56,24 @@ h1::after {
 }
 
 .menu-icon {
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 8px 12px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 6px 10px;
     background-color: #ffffff;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     z-index: 999;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        font-size: 18px;
+        padding: 5px 8px;
+    }
 }
 
 .menu-icon:hover {
@@ -75,37 +84,44 @@ h1::after {
 #myNav {
     position: fixed;
     top: 0;
-    left: -250px;
-    min-height: 100%;
+    left: -200px;
+    min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 200px;
     padding-top: 60px;
     z-index: 1000;
     transition: transform 0.3s ease;
 }
 
 #myNav.open {
-    transform: translateX(250px);
+    transform: translateX(200px);
 }
 
 .overlay-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     padding-top: 20px;
 }
 
 #myNav a {
     text-decoration: none;
     color: rgb(73, 73, 73);
-    font-size: 1.2em;
-    padding: 10px 20px;
+    font-size: 1.1em;
+    padding: 8px 15px;
     transition: all 0.3s ease;
     border-radius: 5px;
     width: 80%;
     text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    #myNav a {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
 }
 
 #myNav a:hover {
@@ -122,6 +138,9 @@ h1::after {
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     height: 60px;
     box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer p {
