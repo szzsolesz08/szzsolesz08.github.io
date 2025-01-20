@@ -1,0 +1,11 @@
+Please add the following images to this directory:
+
+1. servers.jpg - Image representing network/server architecture
+2. yogibear.jpg - Screenshot or artwork from the Yogi Bear game
+3. sheepfarm.jpg - Screenshot from the Sheep Farm game
+4. gogame.jpg - Screenshot of the Go game board
+5. company.jpg - Business/company management interface
+6. pokemon.jpg - Pokemon game interface screenshot
+7. rpg.jpg - RPG game screenshot
+
+Until you have actual screenshots, you can use placeholder images with these names.
