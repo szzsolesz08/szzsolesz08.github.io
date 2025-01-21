@@ -13,7 +13,7 @@ $(document).ready(function() {
     ];
 
     // Pagination functionality
-    const itemsToShow = 5;
+    const itemsToShow = Math.min(5, Math.floor($("#listContainer").width() / 190));
     let startIndex = 0;
 
     function updateDisplay() {
