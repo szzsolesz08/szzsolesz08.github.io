@@ -1,3 +1,7 @@
+/**
+ * Toggles the navigation menu open and closed.
+ * Adds or removes the 'open' class from the menu and 'menu-open' class from the body.
+ */
 function openNav() {
     const menu = $("#myNav");
     if (!menu.hasClass("open")) {
@@ -9,8 +13,16 @@ function openNav() {
     }
 }
 
-// Close menu when clicking outside
+/**
+ * Initializes the document ready event handler.
+ * Sets up the event listener for clicking outside the menu.
+ */
 $(document).ready(function() {
+    /**
+     * Handles the document click event.
+     * Closes the menu when clicking outside the menu and not on the menu icon.
+     * @param {Event} event The click event.
+     */
     $(document).click(function(event) {
         const menu = $("#myNav");
         const menuIcon = $(".menu-icon");

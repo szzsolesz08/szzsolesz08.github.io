@@ -1,28 +1,36 @@
-// Function to create a project card
+/**
+ * Creates a project card HTML element based on the provided project data.
+ * @param {Object} project - The project data to create a card for.
+ * @returns {string} The HTML string for the project card.
+ */
 function createProjectCard(project) {
-    return `
-        <div class="project-card">
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.name} preview">
-            </div>
-            <div class="project-content">
-                <h3 class="project-title">${project.name}</h3>
-                <p class="project-description">${project.description}</p>
-                <div class="project-tech">
-                    ${project.technologies.map(tech => `
-                        <span class="tech-tag">${tech}</span>
-                    `).join('')}
-                </div>
-                <div class="project-links">
-                    <a href="${project.github}" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    `;
+    const card = $("<div/>", {'class': 'project-card'});
+    const imageDiv = $("<div/>", {'class': 'project-image'}).append(
+        $("<img>", { 
+            src: project.image,
+            alt: project.name + ' preview'
+        })
+    );
+    const contentDiv = $("<div/>", {'class': 'project-content'}).append(
+        $("<h3/>", {'class': 'project-title'}).text(project.name),
+        $("<p/>", {'class': 'project-description'}).text(project.description),
+        $("<div/>", {'class': 'project-tech'}).append(
+            project.technologies.map(tech => $("<span/>", {'class': 'tech-tag'}).text(tech))
+        ),
+        $("<div/>", {'class': 'project-links'}).append(
+            $("<a/>", {'class': 'project-link', target: '_blank'}).attr('href', project.github).append(
+                $("<i/>", {'class': 'fab fa-github'}).add(" View on GitHub")
+            )
+        )
+    );
+    card.append(imageDiv, contentDiv);
+    return card;
 }
 
+/**
+ * An array of project objects, each containing project data.
+ * @type {Object[]}
+ */
 const projects = [
     {
         name: "Servers and Clients",
@@ -82,7 +90,9 @@ const projects = [
     }
 ];
 
-// Render projects
+/**
+ * Initializes the project grid and populates it with project cards.
+ */
 $(document).ready(function() {
     const projectsGrid = $('.projects-grid');
     projects.forEach(project => {
