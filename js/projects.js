@@ -19,7 +19,7 @@ function createProjectCard(project) {
         ),
         $("<div/>", {'class': 'project-links'}).append(
             $("<a/>", {'class': 'project-link', target: '_blank'}).attr('href', project.github).append(
-                $("<i/>", {'class': 'fab fa-github'}).add(" View on GitHub")
+                $("<i/>", {'class': 'fab fa-github'}).append("View on GitHub")
             )
         )
     );
