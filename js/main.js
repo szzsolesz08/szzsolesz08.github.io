@@ -37,3 +37,31 @@ $(document).ready(function() {
         }
     });
 });
+
+/**
+ * Toggles between dark and light modes.
+ * Adds or removes the 'light-mode' class from the body and updates the theme toggle button text.
+ */
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('light-mode');
+    
+    const themeToggleButton = document.getElementById('themeToggle');
+    if (body.classList.contains('light-mode')) {
+        themeToggleButton.textContent = 'Switch to Dark Mode';
+    } else {
+        themeToggleButton.textContent = 'Switch to Light Mode';
+    }
+}
+
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('light-mode');
+    
+    const themeToggleButton = document.getElementById('themeToggle');
+    if (body.classList.contains('light-mode')) {
+        themeToggleButton.textContent = 'Switch to Dark Mode';
+    } else {
+        themeToggleButton.textContent = 'Switch to Light Mode';
+    }
+}
