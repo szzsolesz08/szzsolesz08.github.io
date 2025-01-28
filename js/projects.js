@@ -43,7 +43,7 @@ const projects = [
         name: "Yogi Bear Game",
         description: "A fun game implementation featuring Yogi Bear, demonstrating game development and graphics programming skills.",
         image: "../images/yogibear.png",
-        technologies: ["Java", "JavaFX", "Game Development"],
+        technologies: ["Java", "Swing", "Game Development"],
         github: "https://github.com/szzsolesz08/YogiBear"
     },
     {
@@ -57,7 +57,7 @@ const projects = [
         name: "Go Game",
         description: "An implementation of the classic Go board game, featuring AI opponents and multiplayer capabilities.",
         image: "../images/gogame.png",
-        technologies: ["Java", "AI", "Game Development"],
+        technologies: ["Java", "Swing", "Game Development"],
         github: "https://github.com/szzsolesz08/GoGame"
     },
     {
@@ -78,7 +78,7 @@ const projects = [
         name: "RPG Game",
         description: "A role-playing game featuring character development, combat systems, and adventure elements.",
         image: "../images/rpg.png",
-        technologies: ["C#", "Game Development", "OOP"],
+        technologies: ["C#", "OOP", "Game Development"],
         github: "https://github.com/szzsolesz08/RPG_Game"
     },
     {
