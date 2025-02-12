@@ -75,11 +75,11 @@ const projects = [
         github: "https://github.com/szzsolesz08/pokegame_php"
     },
     {
-        name: "RPG Game",
+        name: "Super Adventure",
         description: "A role-playing game featuring character development, combat systems, and adventure elements.",
-        image: "../images/rpg.png",
+        image: "../images/superadventure.png",
         technologies: ["C#", "OOP", "Game Development"],
-        github: "https://github.com/szzsolesz08/RPG_Game"
+        github: "https://github.com/szzsolesz08/SuperAdventure"
     },
     {
         name: "Portfolio Website",
