@@ -7,6 +7,7 @@ const TEXT = 'Type that breathes'
 /**
  * Each letter reads its distance to the pointer and eases its own weight and width
  * along the variable font's axes. With no pointer, a slow wave runs through it.
+ * With reduced motion the wave holds still and letters follow the pointer without easing.
  */
 export default function LiquidType() {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -15,31 +16,23 @@ export default function LiquidType() {
 
   useEffect(() => {
     const wrap = wrapRef.current
-    if (!wrap || !inView || reduced) return
+    if (!wrap || !inView) return
     const letters = Array.from(wrap.querySelectorAll<HTMLSpanElement>('.liquid__ch'))
     const wght = letters.map(() => 400)
     const wdth = letters.map(() => 100)
     const pointer = { x: 0, y: 0, active: false }
-
-    const onMove = (e: PointerEvent) => {
-      pointer.x = e.clientX
-      pointer.y = e.clientY
-      pointer.active = true
-    }
-    const onLeave = () => {
-      pointer.active = false
-    }
-    wrap.addEventListener('pointermove', onMove)
-    wrap.addEventListener('pointerleave', onLeave)
+    // A frozen moment of the wave, used when motion is reduced.
+    const stillT = 2.2
 
     let raf = 0
     let prev = performance.now()
-    const loop = (now: number) => {
-      raf = requestAnimationFrame(loop)
+
+    const frame = (now: number) => {
+      raf = 0
       const dt = Math.min(0.05, (now - prev) / 1000)
       prev = now
-      const k = 1 - Math.exp(-dt * 9)
-      const t = now / 1000
+      const k = reduced ? 1 : 1 - Math.exp(-dt * 9)
+      const t = reduced ? stillT : now / 1000
       const rects = letters.map((l) => l.getBoundingClientRect())
       const size = rects[0]?.height ?? 100
 
@@ -64,8 +57,26 @@ export default function LiquidType() {
         el.style.fontStretch = `${wdth[i]!.toFixed(2)}%`
         el.style.color = p > 0.6 ? `rgb(255 ${Math.round(220 - p * 150)} ${Math.round(200 - p * 150)})` : ''
       })
+
+      if (!reduced) raf = requestAnimationFrame(frame)
     }
-    raf = requestAnimationFrame(loop)
+    const request = () => {
+      if (!raf) raf = requestAnimationFrame(frame)
+    }
+
+    const onMove = (e: PointerEvent) => {
+      pointer.x = e.clientX
+      pointer.y = e.clientY
+      pointer.active = true
+      request()
+    }
+    const onLeave = () => {
+      pointer.active = false
+      request()
+    }
+    wrap.addEventListener('pointermove', onMove)
+    wrap.addEventListener('pointerleave', onLeave)
+    request()
 
     return () => {
       cancelAnimationFrame(raf)

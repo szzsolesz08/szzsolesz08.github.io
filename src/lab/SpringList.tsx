@@ -72,7 +72,10 @@ export default function SpringList() {
   useEffect(() => {
     run()
     const r = raf
-    return () => cancelAnimationFrame(r.current)
+    return () => {
+      cancelAnimationFrame(r.current)
+      r.current = 0
+    }
   }, [])
 
   const lift = (id: string, on: boolean) => {

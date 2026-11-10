@@ -48,7 +48,11 @@ export default function IronFilings() {
       }
     }
     layout()
-    const ro = new ResizeObserver(layout)
+    // Resizing a canvas wipes it, so a still (reduced-motion) field must repaint.
+    const ro = new ResizeObserver(() => {
+      layout()
+      if (!raf) raf = requestAnimationFrame(draw)
+    })
     ro.observe(wrap)
 
     const magnet = { x: w * 0.5, y: h * 0.5, active: false, keyX: w * 0.5, keyY: h * 0.5, keyed: false }
@@ -91,6 +95,7 @@ export default function IronFilings() {
     const t0 = prev
 
     const draw = (now: number) => {
+      raf = 0
       const dt = Math.min(0.05, (now - prev) / 1000)
       prev = now
       const t = (now - t0) / 1000
