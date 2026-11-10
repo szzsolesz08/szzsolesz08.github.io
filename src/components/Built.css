@@ -1,0 +1,76 @@
+.built {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(5rem, 14vh, 10rem);
+}
+
+.built__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vh, 4rem);
+}
+
+.built__head {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.built__metrics {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  border-top: 1px solid var(--line);
+}
+.built__metric {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.5rem 1.25rem 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.built__metric dt {
+  color: var(--bone-faint);
+  font-size: var(--step--1);
+}
+.built__metric dd {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.built__value {
+  font-family: var(--font-mono);
+  font-size: var(--step-3);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bone);
+}
+.built__metric:first-child .built__value {
+  color: var(--core-ink);
+}
+.built__unit {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--bone-dim);
+}
+
+.built__facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.75rem 3rem;
+}
+.built__fact {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+.built__fact dt {
+  font-weight: 650;
+  font-stretch: 110%;
+  color: var(--bone);
+}
+.built__fact dd {
+  margin: 0;
+  color: var(--bone-dim);
+}

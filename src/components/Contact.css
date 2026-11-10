@@ -1,0 +1,107 @@
+.contact {
+  position: relative;
+  z-index: 1;
+  padding-top: 20vh;
+}
+
+.contact__stage {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr calc(38svh + 2rem) 1fr;
+  justify-items: center;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.contact__top {
+  align-self: end;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.contact__title {
+  font-size: clamp(3.2rem, 11vw, 9rem);
+  font-stretch: 125%;
+  font-weight: 820;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+.contact__lede {
+  max-width: 40ch;
+  text-wrap: balance;
+  color: var(--bone-dim);
+  font-size: var(--step-1);
+}
+
+.contact__still-core {
+  grid-row: 2;
+  align-self: center;
+  width: min(30svh, 50vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, var(--core-hot), var(--core) 40%, var(--core-deep) 85%);
+  box-shadow: 0 0 6rem rgb(255 59 38 / 0.35);
+}
+
+.contact__bottom {
+  grid-row: 3;
+  align-self: start;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  padding-top: 1.5rem;
+}
+
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.contact__address {
+  font-size: var(--step-2);
+  font-weight: 600;
+  font-stretch: 108%;
+  letter-spacing: -0.02em;
+  text-decoration-color: var(--core);
+  text-decoration-thickness: 2px;
+  overflow-wrap: anywhere;
+}
+.contact__address:hover {
+  color: var(--core-ink);
+}
+
+.contact__status {
+  min-height: 1.6em;
+  color: var(--bone-dim);
+  font-size: var(--step--1);
+}
+
+.contact__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 2rem var(--gutter) 2.25rem;
+  color: var(--bone-faint);
+  font-size: var(--step--1);
+  border-top: 1px solid var(--line);
+}
+.footer a:hover {
+  color: var(--bone);
+}

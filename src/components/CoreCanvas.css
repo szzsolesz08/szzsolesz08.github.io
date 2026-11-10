@@ -1,0 +1,27 @@
+.core-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--void);
+}
+
+/* Reduced motion: one still core behind the opening screen only. */
+.core-layer--still {
+  position: absolute;
+  height: 100svh;
+}
+
+.core-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.core-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, #ff8a6b 0, #ff3b26 7vmin, #8a0b0d 17vmin, rgb(138 11 13 / 0.25) 19vmin, transparent 34vmin),
+    var(--void);
+}

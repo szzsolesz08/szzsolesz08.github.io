@@ -1,0 +1,47 @@
+.toolkit {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(4rem, 10vh, 8rem);
+}
+.toolkit__grid {
+  display: grid;
+  gap: clamp(2rem, 5vh, 3.5rem);
+}
+@media (min-width: 960px) {
+  .toolkit__grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  }
+}
+.toolkit__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 2.75rem 3rem;
+}
+.toolkit__group {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.toolkit__name {
+  font-size: var(--step-1);
+  font-stretch: 112%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.toolkit__tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+  font-size: var(--step-1);
+  font-weight: 450;
+  color: var(--bone);
+}
+.toolkit__why {
+  color: var(--bone-faint);
+  font-size: var(--step--1);
+  max-width: 38ch;
+}
